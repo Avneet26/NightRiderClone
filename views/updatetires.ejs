@@ -1,0 +1,23 @@
+<%- include("header.ejs") %>
+<body>
+    <%- include("navbar.ejs") %>
+    <div class="add-job-page bg-gray pt-4 pb-4">
+        <div class="page-heading container bg-white rounded p-3 text-primary ">
+            <strong>UPDATE TIRES</strong>
+        </div>
+        <div class="page-heading container bg-white rounded p-3 mt-5">
+            <form id="Add-Job" action="">
+                <p class="text-secondary">Field Marked with * are Mandatory</p>
+                <div class="row mt-3">
+                    <div class="col">
+                        <label for="tireName" class="form-label">Name*</label>
+                        <input type="text" class="form-control" id="tireName" required placeholder="Enter Name">                      
+                    </div>
+                </div>
+                <div class="mt-5">
+                    <input type="button" id="tires-update" value="Update" class="btn btn-warning">
+                </div>
+            </form>
+        </div>
+    </div>
+<%- include("footer.ejs") %>

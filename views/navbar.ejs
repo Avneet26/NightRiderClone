@@ -1,0 +1,75 @@
+<nav class="navbar navbar-dark ">
+    <div class="container">
+        <a class="navbar-brand" href="/admin/dashboard">
+            <img src="../assets/logo.png" alt="night-rider-logo" width="80">
+        </a>
+        <div class="dropdown">
+          <button class="btn dropdown-toggle username-navbar" data-bs-toggle="dropdown" aria-expanded="false">
+              Profile
+          </button>
+          <ul class="dropdown-menu dropdown-menu-end ">
+              <li><a class="dropdown-item" href="#">Profile</a></li>
+              <li><a class="dropdown-item" href="javascript:void(0)" id="logout">Logout</a></li>
+          </ul>
+        </div>
+    </div>
+</nav>
+<nav class="navbar navbar-expand-md custom-navbar">
+    <div class="container">
+      <button class="navbar-toggler " type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDarkDropdown" aria-controls="navbarNavDarkDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link text-white" aria-current="page" href="/admin/dashboard">Dashboard</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" aria-current="page" target="_blank" href="/admin/live_jobs">Live Jobs</a>
+          </li>
+          <li class="nav-item dropdown">
+            <button class="btn text-white dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+              Manage Jobs
+            </button>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="/admin/add_job">Add Job</a></li>
+              <li><a class="dropdown-item" href="/admin/manage_job">Manage Job</a></li>
+            </ul>
+          </li>
+
+          <li class="nav-item dropdown">
+            <button class="btn text-white dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+              Manage Workers
+            </button>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="/admin/add_worker">Add Worker</a></li>
+              <li><a class="dropdown-item" href="/admin/manage_worker">Manage Worker</a></li>
+            </ul>
+          </li>
+
+          <li class="nav-item dropdown">
+            <button class="btn text-white dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+              Manage Services
+            </button>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="/admin/add_services">Add Services</a></li>
+              <li><a class="dropdown-item" href="/admin/manage_services">Manage Services</a></li>
+            </ul>
+          </li>
+
+          <li class="nav-item dropdown">
+            <button class="btn text-white dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+              Manage Tires
+            </button>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="/admin/add_tires">Add Tire</a></li>
+              <li><a class="dropdown-item" href="/admin/manage_tires">Manage Tire</a></li>
+              <li><a class="dropdown-item" href="/admin/add_sub_tire">Add Tire Types</a></li>
+              <li><a class="dropdown-item" href="/admin/manage_sub_tire">Manage Tire Types</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      
+    </div>
+</nav>

@@ -1,0 +1,28 @@
+<%- include("header.ejs") %>
+<body class="row justify-content-center h-100vw align-items-center login-bg">
+    <div class="form-container container col-sm-12 col-md-7 col-lg-5 border border-dark-subtle rounded p-5 bg-white">
+        <div class="d-flex justify-content-center">
+            <img src="../assets/logo.png" alt="company-logo" width="100px">
+        </div>
+        <h5 class="text-center pt-4">Register User</h5>
+        <p class="error-msg text-danger p-2 border border-2 border-danger rounded d-none">Enter All Fields Correctly</p>
+        <p class="error-msg-auth text-danger p-2 border border-2 border-danger rounded d-none">Email Already Exists</p>
+        <form id="register-form" class="d-flex flex-column ">
+            <div>
+                <label class="form-label" for="name">Name</label>
+                <input class="form-control" type="text" name="name" id="name">
+            </div>
+            <div>
+                <label class="form-label" for="email">Email</label>
+                <input class="form-control" type="text" name="email" id="email">
+            </div>
+            <div class="mt-4">
+                <label class="form-label" for="password">Password</label>
+                <input class="form-control" type="password" name="password" id="password">
+            </div>
+            <div>
+                <input class="btn btn-primary w-100 mt-4" type="button" name="submit" id="register-submit" value="Submit">
+            </div>
+        </form>
+    </div>
+<%- include("footer.ejs") %>

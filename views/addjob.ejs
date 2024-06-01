@@ -1,0 +1,148 @@
+<%- include("header.ejs") %>
+<body>
+    <%- include("navbar.ejs") %>
+    <div class="add-job-page bg-gray pt-4 pb-4">
+        <div class="page-heading container bg-white rounded p-3 text-primary ">
+            <strong>ADD JOBS</strong>
+        </div>
+        <div class="page-heading container bg-white rounded p-3 mt-5">
+            <form id="Add-Job" action="">
+                <div class="row mt-3">
+                    <div class="col">
+                        <label for="jobDate" class="form-label">Job Date</label>
+                        <input type="date" class="form-control" id="jobDate">                      
+                    </div>
+                    <div class="col">
+                        <label for="company" class="form-label">Company Name</label>
+                        <input type="text" class="form-control" id="company" placeholder="Company Name">
+                    </div>
+                    <div class="col">
+                        <label for="unit" class="form-label">Unit</label>
+                        <input type="text" class="form-control" id="unit" placeholder="Unit">
+                    </div>
+                    <div class="col">
+                        <label for="make" class="form-label">Make</label>
+                        <input type="text" class="form-control" id="make" placeholder="Make">
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col">
+                        <label for="vinNum" class="form-label">Vin#</label>
+                        <input type="text" class="form-control" id="vinNum" placeholder="Vin#">                      
+                    </div>
+                    <div class="col">
+                        <label for="year" class="form-label">Year</label>
+                        <select class="form-select" name="year" id="year">
+                            <option value="none" selected>-Select Year-</option>
+                        </select>
+                    </div>
+                    <div class="col">
+                        <label for="millage" class="form-label">Millage</label>
+                        <input type="number" class="form-control" id="millage" placeholder="Millage">
+                    </div>
+                    <div class="col">
+                        <label for="lic" class="form-label">LIC</label>
+                        <input type="text" class="form-control" id="lic" placeholder="LIC">
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col">
+                        <label for="invoiceNum" class="form-label">Invoice#</label>
+                        <input type="text" class="form-control" id="invoiceNum" placeholder="Invoice#">                      
+                    </div>
+                    <div class="col">
+                        <label for="alignment" class="form-label">Alignment</label>
+                        <select class="form-select" name="alignment" id="alignment">
+                            <option value="none" selected>-Select Option-</option>
+                            <option value="yes">Yes</option>
+                            <option value="no">No</option>
+                        </select>
+                    </div>
+                    <div class="col">
+                        <label for="jobStatus" class="form-label">Job Status</label>
+                        <select class="form-select" name="jobStatus" id="jobStatus">
+                            <option value="none" selected>-Select Status-</option>
+                            <option value="pickup">Pickup</option>
+                            <option value="waiting">Waiting</option>
+                            <option value="dropped">Dropped</option>
+                            <option value="running">Running Repair</option>
+                            <option value="completed">Completed</option>
+                            <option value="invoiced">Invoiced</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col">
+                        <label for="driverName" class="form-label">Driver Name</label>
+                        <input type="text" class="form-control" id="driverName" placeholder="Driver Name">                      
+                    </div>
+                    <div class="col">
+                        <label for="driverPhone" class="form-label">Driver Phone</label>
+                        <input type="text" class="form-control" id="driverPhone" placeholder="Driver Phone">
+                    </div>
+                    <div class="col">
+                        
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="email" placeholder="Email">                      
+                    </div>
+                    <div class="col">
+                        <label for="worker" class="form-label">Worker</label>
+                        <select class="form-select" name="worker" id="worker">
+                            <option value="none" selected>-Select Worker-</option>
+                            
+                        </select>
+                    </div>
+                    <div class="col">
+                        <label for="bay" class="form-label">Bay</label>
+                        <select class="form-select" name="bay" id="bay">
+                            <option value="none" selected>-Select Bay-</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col">
+                        <label for="note" class="form-label">Notes</label>
+                        <textarea id="note" class="form-control"></textarea>
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col" id="add-job-tire">
+                        <label for="add-tires" class="form-label">Add Tires</label>
+                        <div class="row bg-dark-subtle m-1 p-1 new-tire-head">
+                            <div class="col-1 d-flex align-items-center">Qty</div>
+                            <div class="col-2 d-flex align-items-center">Tire</div>
+                            <div class="col-6 d-flex align-items-center">Description</div>
+                            <div class="col-2 d-flex align-items-center">Price</div>
+                            <div class="col-1">
+                                <button type="button" class="btn btn-success" id="add-job-tire-btn">
+                                    <i class="fa-solid fa-plus"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col">
+                        <label for="fileupload" class="form-label">Upload Images/Files</label>
+                        <input type="file" name="file" id="fileupload" class="btn btn-secondary d-block">
+                    </div>
+                </div>
+                <div class="mt-5">
+                    <input id="submit-job" type="button" value="Submit" class="btn btn-primary">
+                </div>
+            </form>
+            <script src="../scripts/addJob.js"></script>
+        </div>
+    </div>
+<%- include("footer.ejs") %>
