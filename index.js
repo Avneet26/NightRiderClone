@@ -27,6 +27,10 @@ app.get("/admin/dashboard", function (req, res) {
     res.render("dashboard.ejs");
 });
 
+app.get("/admin/profile", function (req, res) {
+    res.render("profile.ejs");
+});
+
 app.get("/admin/live_jobs", function (req, res) {
     res.render("liveJobs.ejs");
 });

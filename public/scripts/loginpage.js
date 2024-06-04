@@ -22,7 +22,10 @@ import {
     createUserWithEmailAndPassword,
     signInWithEmailAndPassword,
     signOut,
-    updateProfile
+    updateProfile,
+    updatePassword,
+    reauthenticateWithCredential,
+    EmailAuthProvider
 } from "https://www.gstatic.com/firebasejs/9.4.0/firebase-auth.js";
 import {
     getStorage,
@@ -72,8 +75,39 @@ async function updateDocumentById(collectionName, documentId, updateData, redire
   }
 
 function completeTask(uid) {
-    updateDocumentById('jobs', uid, {jobStatus: 'completed'}, '/admin/manage_job');
+    updateDocumentById('jobs', uid, {jobStatus: 'completed', completedOn: new Date().toString().split(" ").splice(1, 4).join(" ")}, '/admin/manage_job');
 }
+
+async function updateUserPassword(newPassword) {
+    const user = auth.currentUser;
+
+    if (user) {
+        try {
+            await updatePassword(user, newPassword);
+            window.location.href = "./admin/profile.ejs";
+            console.log("User password updated successfully!");
+        } catch (error) {
+            console.error("Error updating user password: ", error);
+            if (error.code === 'auth/requires-recent-login') {
+                // Re-authenticate the user and then try again
+                const email = user.email;
+                const password = prompt("Please enter your current password for re-authentication:");
+                const credential = EmailAuthProvider.credential(email, password);
+
+                try {
+                    await reauthenticateWithCredential(user, credential);
+                    await updatePassword(user, newPassword);
+                    console.log("User password updated successfully after re-authentication!");
+                } catch (reauthError) {
+                    console.error("Error re-authenticating user: ", reauthError);
+                }
+            }
+        }
+    } else {
+        console.log("No user is signed in.");
+    }
+}
+
 async function registerUser(name, email, password) {
     try {
         const userCredential = await createUserWithEmailAndPassword(auth, email, password);
@@ -103,6 +137,10 @@ onAuthStateChanged(auth, (user) => {
         // User is signed in
         console.log("User is signed in:", user);
         userProps = user;
+        if (window.location.href.includes("/admin/profile")) {
+            document.querySelector('#profileName').value = userProps.displayName;
+            document.querySelector('#profileEmail').value = userProps.email;
+        }
         if (!(window.location.href.includes("/admin/login") && window.location.href.includes("/admin/register"))) {
             setTimeout(() => {
                 document.querySelector('.username-navbar').innerText = userProps.displayName;
@@ -671,6 +709,24 @@ if (window.location.href.includes("/admin/update_sub_tire")) {
         }
     }).catch(error => {
         console.error("Error retrieving document:", error);
+    });
+}
+
+if (window.location.href.includes("/admin/profile")) {
+
+    document.querySelector("#profile-submit").addEventListener('click', function() {
+        const newPass = document.querySelector("#password").value;
+        const confPass = document.querySelector("#confirmPassword").value;
+        if (newPass == "") {
+            document.querySelector(".error-msg").classList.remove('d-none');
+        } else {
+            document.querySelector(".error-msg").classList.add('d-none');
+        }
+        if (newPass == confPass) {
+            updateUserPassword(newPass);
+        } else {
+            document.querySelector(".error-msg-pass").classList.remove('d-none');
+        }
     });
 }
 

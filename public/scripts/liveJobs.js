@@ -41,7 +41,7 @@ allJobs.forEach(function(job, idx) {
             <p>STATUS: <strong>${job.jobStatus}</strong></p>
             <div style="overflow-x:scroll">
                 <p>Parts:</p>
-                <table class="border table">
+                <table class="border table tire-table">
                     <tbody>
                         <tr>
                             <th>Qty</th>
@@ -56,7 +56,19 @@ allJobs.forEach(function(job, idx) {
     </div>
     `;
     document.querySelector(".live-jobs-container").insertAdjacentHTML('beforeend', html);
+    job.tire.forEach(function(tire) {
+        const newtire = `
+            <tr>
+                <td>${tire.qty}</td>
+                <td>${tire.name}</td>
+                <td>${tire.desc}</td>
+            </tr>
+        `;
+        document.querySelector('.tire-table').insertAdjacentHTML('beforeend', newtire);
+    });
 });
+
+
 
 setTimeout(() => {
     window.location.reload();

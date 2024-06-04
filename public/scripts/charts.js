@@ -92,10 +92,10 @@ const ctx2 = document.getElementById('jobBar').getContext('2d');
 const jobChart = new Chart(ctx, {
     type: 'line',
     data: {
-        labels: labels,
+        labels: labels.reverse(),
         datasets: [{
             label: 'Number of Jobs',
-            data: counts,
+            data: counts.reverse(),
             borderColor: '#B80E12',
             backgroundColor: '#00000000',
             fill: true,
@@ -127,10 +127,10 @@ const jobChart = new Chart(ctx, {
 const jobBar = new Chart(ctx2, {
     type: 'bar',
     data: {
-        labels: labels2,
+        labels: labels2.reverse(),
         datasets: [{
             label: 'Number of Jobs',
-            data: counts2,
+            data: counts2.reverse(),
             borderColor: '#B80E12',
             backgroundColor: '#B80E12',
             fill: true,

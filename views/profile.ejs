@@ -1,0 +1,43 @@
+<%- include("header.ejs") %>
+<body>
+<%- include("navbar.ejs") %>
+<div class="add-job-page bg-gray pt-4 pb-4">
+    <div class="page-heading container bg-white rounded p-3 text-primary ">
+        <strong>PROFILE PAGE</strong>
+    </div>
+    <div class="page-heading container bg-white rounded p-3 mt-5">
+        <form id="Add-Job" action="">
+            <p class="text-secondary">Fields Marked with * are Mandatory</p>
+            <p class="error-msg text-danger p-2 border border-2 border-danger rounded d-none">Please Enter Required Fields</p>
+            <p class="error-msg-pass text-danger p-2 border border-2 border-danger rounded d-none">Passwords Do Not Match</p>
+            <div class="row mt-3">
+                <div class="col">
+                    <label for="workerName" class="form-label">Name*</label>
+                    <input type="text" disabled class="form-control" id="profileName" required placeholder="Enter Name">
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col">
+                    <label for="workerEmail" class="form-label">Email</label>
+                    <input type="email" disabled class="form-control" id="profileEmail" required placeholder="Enter a valid Email">
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col">
+                    <label for="workerPhone" class="form-label">Password</label>
+                    <input type="password" class="form-control" id="password" required placeholder="Enter Password">
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col">
+                    <label for="workerAddress" class="form-label">Confirm Password</label>
+                    <input type="password" class="form-control" id="confirmPassword" required placeholder="Confirm Password">
+                </div>
+            </div>
+            <div class="mt-5">
+                <input id="profile-submit" type="button" value="Update" class="btn btn-warning">
+            </div>
+        </form>
+    </div>
+</div>
+<%- include("footer.ejs") %>
