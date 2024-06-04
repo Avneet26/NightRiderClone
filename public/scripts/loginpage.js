@@ -74,6 +74,11 @@ async function updateDocumentById(collectionName, documentId, updateData, redire
     }
   }
 
+function removeLoader() {
+    document.querySelector('.loader-container').remove();
+    document.querySelector('.d-none').classList.remove('d-none');
+}
+
 function completeTask(uid) {
     updateDocumentById('jobs', uid, {jobStatus: 'completed', completedOn: new Date().toString().split(" ").splice(1, 4).join(" ")}, '/admin/manage_job');
 }
@@ -443,6 +448,7 @@ if (window.location.href.includes('/admin/manage_job')) {
     $('#jobTable').DataTable({
         order: [0, 'desc']
     });
+    removeLoader();
     document.querySelectorAll(".complete-job").forEach(function(ele) {
         ele.addEventListener("click", function(eve) {
             const uid = eve.currentTarget.closest(".job-row").getAttribute('data-row-id');
@@ -493,6 +499,7 @@ if (window.location.href.includes("/admin/manage_worker")) {
         tableBody.insertAdjacentHTML('beforeend', rowHtml);
     });
     $('#workerTable').DataTable();
+    removeLoader();
     document.querySelectorAll(".delete-worker").forEach(function(ele) {
         ele.addEventListener("click", function(eve) {
             const uid = eve.currentTarget.closest(".job-row").getAttribute('data-row-id');
@@ -556,6 +563,7 @@ if (window.location.href.includes("/admin/manage_services")) {
         tableBody.insertAdjacentHTML('beforeend', rowHtml);
     });
     $('#servicesTable').DataTable();
+    removeLoader();
     document.querySelectorAll(".delete-service").forEach(function(ele) {
         ele.addEventListener("click", function(eve) {
             const uid = eve.currentTarget.closest(".job-row").getAttribute('data-row-id');
@@ -613,6 +621,7 @@ if (window.location.href.includes("/admin/manage_tires")) {
         tableBody.insertAdjacentHTML('beforeend', rowHtml);
     });
     $('#tiresTable').DataTable();
+    removeLoader();
     document.querySelectorAll(".delete-tire").forEach(function(ele) {
         ele.addEventListener("click", function(eve) {
             const uid = eve.currentTarget.closest(".job-row").getAttribute('data-row-id');
@@ -677,6 +686,7 @@ if (window.location.href.includes("/admin/manage_sub")) {
         tableBody.insertAdjacentHTML('beforeend', rowHtml);
     });
     $('#tireTypeTable').DataTable();
+    removeLoader();
     document.querySelectorAll(".delete-tire-type").forEach(function(ele) {
         ele.addEventListener("click", function(eve) {
             const uid = eve.currentTarget.closest(".job-row").getAttribute('data-row-id');

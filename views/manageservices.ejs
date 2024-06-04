@@ -6,7 +6,12 @@
             <strong>MANAGE SERVICES</strong>
         </div>
         <div class="page-heading container bg-white rounded p-3 mt-5">
-            <table id="servicesTable">
+            <div class="loader-container w-100 d-flex justify-content-center">
+                <div class="spinner-border text-primary" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+            </div>
+            <table id="servicesTable" class="d-none w-100">
                 <thead>
                     <tr>
                         <th>ID</th>
