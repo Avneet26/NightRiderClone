@@ -417,7 +417,7 @@ if (window.location.href.includes('/admin/manage_job')) {
                                 <p><strong>Completed On: </strong>${job.completedOn}</p>
                                 <p><strong>Added By: </strong>${job.jobCreatedBy}</p>
                                 <p>
-                                    <button class="btn btn-warning download-invoice text-white" class="Download Invoice"><i class="fa-solid fa-download"></i></button>
+                                    <a href="/admin/invoice?job=${job.id}" class="btn btn-warning download-invoice text-white" class="Download Invoice"><i class="fa-solid fa-download"></i></a>
                                     <a href="/admin/update_job?job=${job.id}" class="btn btn-primary update-job text-white"><i class="fa-solid fa-pen-to-square"></i></a>
                                     <button class="btn btn-success complete-job text-white"><i class="fa-solid fa-check"></i></button>
                                     <button class="btn btn-danger delete-job text-white"><i class="fa-solid fa-trash"></i></button>

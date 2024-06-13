@@ -31,6 +31,11 @@ app.get("/admin/profile", function (req, res) {
     res.render("profile.ejs");
 });
 
+app.get("/admin/invoice", function (req, res) {
+    res.render("invoice.ejs");
+});
+
+
 app.get("/admin/live_jobs", function (req, res) {
     res.render("liveJobs.ejs");
 });

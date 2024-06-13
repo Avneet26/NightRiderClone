@@ -1,0 +1,93 @@
+<%- include("header.ejs") %>
+<div class="d-none">
+    <%- include("navbar.ejs") %>
+</div>
+<body class="bg-dark d-flex flex-column align-items-center gap-5">
+    <div>
+        <button id="invoice-download" class="btn btn-warning mt-5">Download Invoice</button>
+    </div>
+    <div class="loader-container w-100 mt-3 d-flex justify-content-center">
+        <div class="spinner-border text-white" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+    </div>
+    <div id="invoice-container" class="bg-white p-3 mb-5 d-none" style="width: 992px; min-height: 1403px">
+        <div class="inv-header d-flex align-items-center justify-content-between">
+            <img src="../assets/logo-grayscale.png" alt="logo" width="200px"/>
+            <div class="d-flex flex-column align-items-center">
+                <h2><strong>NIGHT RIDER</strong></h2>
+                <h5><strong>TIRE SERVICE</strong></h5>
+                <p>Email: nightridertire@gmail.com</p>
+                <p>Address: 14445 Hwy 50, Caledon, ON L7E 3H6</p>
+            </div>
+            <div>
+                <h5><strong>INVOICE#: <span class="invoice-num"></span></strong></h5>
+                <p><strong>DATE: <span class="invoice-date"></span></strong></p>
+                <p><strong>HST# 815243191RT 0001</strong></p>
+                <p style="font-size: 12px"><strong>DIRECT: 647-865-1386</strong></p>
+            </div>
+        </div>
+        <div class="inv-main border rounded border-dark p-3 mt-3">
+            <div class="d-flex gap-2">
+                <div class="w-50">
+                    <p class="d-flex">NAME: <span class="inv-name flex-grow-1 mx-2 border-bottom border-dark"></span></p>
+                    <p class="d-flex">KM: <span class="inv-km flex-grow-1 mx-2 border-bottom border-dark"></span></p>
+                    <p class="d-flex">EMAIL: <span class="inv-email flex-grow-1 mx-2 border-bottom border-dark"></span></p>
+                    <p class="d-flex">PHONE: <span class="inv-phone flex-grow-1 mx-2 border-bottom border-dark"></span></p>
+                </div>
+                <div class="w-50">
+                    <p class="d-flex">VIN#: <span class="inv-vin flex-grow-1 mx-2 border-bottom border-dark"></span></p>
+                    <p class="d-flex">MAKE: <span class="inv-make flex-grow-1 mx-2 border-bottom border-dark"></span></p>
+                    <p class="d-flex">UNIT#: <span class="inv-unit flex-grow-1 mx-2 border-bottom border-dark"></span></p>
+                    <p class="d-flex">LIC: <span class="inv-lic flex-grow-1 mx-2 border-bottom border-dark"></span></p>
+                </div>
+            </div>
+            <div>
+                <p><strong>Assigned Tires</strong></p>
+                <table class="tire-table w-100">
+                    <tr>
+                        <th class="bg-gray p-1">Qty</th>
+                        <th class="bg-gray p-1">Tire</th>
+                        <th class="bg-gray p-1">Size</th>
+                        <th class="bg-gray p-1">Price</th>
+                    </tr>
+                </table>
+            </div>
+            <div class="mt-4">
+                <p class="w-100 bg-gray p-1"><strong>Details</strong></p>
+                <p class="inv-notes" style="min-height: 80px"></p>
+            </div>
+        </div>
+        <div class="inv-total-section d-flex gap-2">
+            <div class="border rounded border-1 border-dark mt-4 w-50 p-3">
+                <p style="min-height: 120px">DRIVER NAME:
+                    <span class="inv-driver-name"></span>
+                </p>
+                <p>CUSTOMER <br> SIGNATURE: <span class="inv-sign"></span></p>
+            </div>
+            <div class="border rounded border-1 border-dark mt-4 w-50 p-3">
+                <div class="d-flex align-items-center justify-content-start">
+                    <p style="min-width: 100px">SUB TOTAL:</p>
+                    <p class="border border-dark flex-grow-1 mx-2" style="height: 60px"></p>
+                </div>
+                <div class="d-flex align-items-center justify-content-start">
+                    <p style="min-width: 100px">HST:</p>
+                    <p class="border border-dark flex-grow-1 mx-2" style="height: 60px"></p>
+                </div>
+                <div class="d-flex align-items-center justify-content-start">
+                    <p style="min-width: 100px">TOTAL:</p>
+                    <p class="border border-dark flex-grow-1 mx-2" style="height: 60px"></p>
+                </div>
+            </div>
+        </div>
+        <div class="inv-footer border rounded border-dark mt-3 p-3">
+            <p style="font-size: 9px"><strong>THE UNDERSIGNER HEREBY ACKNOWLEDGED</strong></p>
+            <p style="font-size: 8px">That the undersigned is indebted to the above named company in the amount set out on this work order/invoice together with interest there on at the rate of 2.0% per month, 24% per annum computed from the date of this work order. That until payment in full for this
+                work order is received, a lien under the repair and storage lien act of Ontario on vehicle described herein in respect of the material supplied, all disbursements and the services rendered under this work order for the full amount charged therefore, and further that the
+                said lien shall continue in the force at all times, whether the vehicle is in my possession or possession of the debtor. That we, or our bailiff or agent may seize and resume possession at any time if the amount of the indebtedness is not paid on the due date and
+                realize the amount of such indebtedness together with all costs and disbursements of resuming possession</p>
+            <p style="font-size: 8px" class="border border-dark p-2">NOTE: NOT RESPONSIBLE FOR LOOSE WHEELS & BROKEN STUDS & NUTS. WHEELS SHOULD BE TIGHTENED AFTER 100 KM. CLAIMS AND GOODS RETURNED MUST BE ACCOMPAINED BY THIS INVOICE.</p>
+        </div>
+        <script  type="module" src="../scripts/invoiceGen.js"></script>
+    </div>
+<%- include("footer.ejs") %>
