@@ -10,7 +10,7 @@
   "routes": [
     {
       "src": "/(.*)",
-      "dest": "/index.js",
+      "dest": "/",
       "headers": {
         "Content-Security-Policy": "default-src *; script-src * 'unsafe-inline'; connect-src *; img-src *; style-src * 'unsafe-inline'; frame-src *; font-src *; media-src *; object-src *; child-src *; worker-src *;"
       }
