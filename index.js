@@ -1,9 +1,20 @@
 const express = require("express");
+const path = require("path");
+const helmet = require("helmet");
 const app = express();
 
-app.use(express.static(__dirname + '/public'));
+app.use(express.static(path.join(__dirname, 'public')));
 
-
+app.use(
+    helmet.contentSecurityPolicy({
+        directives: {
+            defaultSrc: ["'self'"],
+            scriptSrc: ["'self'", "*"],
+            connectSrc: ["'self'", "*"],
+            // Add other directives as needed
+        },
+    })
+);
 
 function createUser() {
     console.log("hello")
