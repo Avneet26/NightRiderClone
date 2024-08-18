@@ -9,7 +9,10 @@
   "routes": [
     {
       "src": "/(.*)",
-      "dest": "/index.js"
+      "dest": "/index.js",
+      "headers": {
+        "Content-Security-Policy": "default-src 'self'; script-src 'self' *; connect-src 'self' *; img-src 'self' data:; style-src 'self';"
+      }
     }
   ]
 }
