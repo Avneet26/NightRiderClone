@@ -20,7 +20,7 @@ function createUser() {
     console.log("hello")
 }
 
-app.set("view-engine", "ejs");
+app.set("view engine", "ejs");
 
 app.get("/", function (req, res) {
     // res.send("Hello World");
