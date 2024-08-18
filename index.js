@@ -5,16 +5,16 @@ const app = express();
 
 app.use(express.static(path.join(__dirname, 'public')));
 app.set('views', path.join(__dirname, 'views'));
-app.use(
-    helmet.contentSecurityPolicy({
-        directives: {
-            defaultSrc: ["'self'"],
-            scriptSrc: ["'self'", "*"],
-            connectSrc: ["'self'", "*"],
-            // Add other directives as needed
-        },
-    })
-);
+// app.use(
+//     helmet.contentSecurityPolicy({
+//         directives: {
+//             defaultSrc: ["'self'"],
+//             scriptSrc: ["'self'", "*"],
+//             connectSrc: ["'self'", "*"],
+//             // Add other directives as needed
+//         },
+//     })
+// );
 
 function createUser() {
     console.log("hello")
