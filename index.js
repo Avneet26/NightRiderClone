@@ -12,7 +12,7 @@ function createUser() {
 app.set("view-engine", "ejs");
 
 app.get("/", function (req, res) {
-    res.send("Hello World");
+    res.redirect("/admin/dashboard");
 });
 
 app.get("/admin/login", function (req, res) {
