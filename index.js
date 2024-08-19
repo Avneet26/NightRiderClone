@@ -1,30 +1,18 @@
-import express from "express";
-import path from "path";
-import helmet from "helmet";
+const express = require("express");
 const app = express();
 
-app.use(express.static(path.join(__dirname, 'public')));
-app.set('views', path.join(__dirname, 'views'));
-// app.use(
-//     helmet.contentSecurityPolicy({
-//         directives: {
-//             defaultSrc: ["'self'"],
-//             scriptSrc: ["'self'", "*"],
-//             connectSrc: ["'self'", "*"],
-//             // Add other directives as needed
-//         },
-//     })
-// );
+app.use(express.static(__dirname + '/public'));
+
+
 
 function createUser() {
     console.log("hello")
 }
 
-app.set("view engine", "ejs");
+app.set("view-engine", "ejs");
 
 app.get("/", function (req, res) {
-    // res.send("Hello World");
-    res.redirect("/admin/dashboard");
+    res.send("Hello World");
 });
 
 app.get("/admin/login", function (req, res) {
@@ -114,8 +102,6 @@ app.get("/admin/update_sub_tire", function(req, res) {
 });
 
 
-// app.listen(3000, () => {
-//     console.log("Server running on port 3000");
-// });
-
-module.exports = app;
+app.listen(3000, () => {
+    console.log("Server running on port 3000");
+});
